@@ -2,6 +2,8 @@ package io.github.lzx2005.entity;
 
 import org.junit.Test;
 
+import java.util.*;
+
 import static org.junit.Assert.*;
 
 
@@ -27,6 +29,16 @@ public class TalkTest {
         assertEquals(talk1.getMinutes(), 60);
         assertEquals(talk2.getMinutes(), 45);
         assertEquals(talk3.getMinutes(), 5);
+
+        TreeSet<Talk> talks = new TreeSet<>();
+        talks.add(talk1);
+        talks.add(talk3);
+        talks.add(talk2);
+        System.out.println(talks);
+        NavigableSet<Talk> talks1 = talks.descendingSet();
+        System.out.println(talks1);
+
+        assertEquals(talks1.first().getMinutes() , 60);
     }
 
 }
