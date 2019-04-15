@@ -11,10 +11,29 @@ import java.util.List;
  */
 public class Session {
 
+    /**
+     * 总时间
+     */
     private int totalMinutes;
+
+    /**
+     * 剩余时间
+     */
     private int restMinutes;
+
+    /**
+     * 开始时间
+     */
     private LocalTime startTime;
+
+    /**
+     * Session类型
+     */
     private SessionType sessionType;
+
+    /**
+     * Talk列表
+     */
     private List<Talk> talks;
 
     public Session(SessionType sessionType) {
@@ -41,6 +60,10 @@ public class Session {
         return startTime;
     }
 
+    /**
+     * 添加一个Talk，减去剩余时间。
+     * @param talk
+     */
     public void addTalk(Talk talk) {
         if (talk == null) {
             throw new NullPointerException("talk is null");
@@ -53,13 +76,10 @@ public class Session {
         this.restMinutes -= talk.getMinutes();
     }
 
-    public void removeTalk(Talk talk) {
-        if (talk == null) {
-            throw new NullPointerException("talk is null");
-        }
-        //todo
-    }
-
+    /**
+     * 格式化输出一个Session
+     * @return
+     */
     @Override
     public String toString() {
         String t = this.sessionType == SessionType.MORNING ? "AM" : "PM";

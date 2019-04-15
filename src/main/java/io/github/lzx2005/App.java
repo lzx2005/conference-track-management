@@ -15,17 +15,21 @@ import java.util.TreeSet;
  */
 public class App {
     public static void main(String[] args) {
+        // 读取文件
         List<String> list = FileUtils.read(new File(FileLaction.TEXT_FILE));
         if (list == null) {
             throw new RuntimeException("file is null");
         }
+        // 封装Talk类
         TreeSet<Talk> talks = new TreeSet<>();
         list.forEach(title -> {
             Talk talk = new Talk(title);
             talks.add(talk);
         });
+        // 安排会议
         TrackService trackService = TrackService.getInstance();
         List<Track> tracks = trackService.manage(talks);
+        // 格式化输出
         for (int i = 0; i < tracks.size(); i++) {
             Track track = tracks.get(i);
             System.out.println("Track " + (i + 1) + ":");

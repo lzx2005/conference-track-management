@@ -52,6 +52,11 @@ public class Talk implements Comparable {
                 '}';
     }
 
+    /**
+     * 重写比较方法，首先比较时间，相同时间下，再比较每个标题的哈希值
+     * @param o     其他Talk
+     * @return      大小
+     */
     @Override
     public int compareTo(Object o) {
         if (o instanceof Talk) {
