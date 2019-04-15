@@ -33,14 +33,18 @@ public class TrackService {
         LinkedList<Track> tracks = new LinkedList<>();
         tracks.add(new Track());
         talks.descendingSet().forEach(talk -> {
-            Track track = tracks.getLast();
-            if (track != null) {
-                boolean success = track.addTalk(talk);
-                if (!success) {
-                    Track trackNew = new Track();
-                    trackNew.addTalk(talk);
-                    tracks.add(trackNew);
+            boolean success = false;
+            for (Track track : tracks) {
+                if (track != null) {
+                    success = track.addTalk(talk);
+                    if(success) break;
                 }
+
+            }
+            if (!success) {
+                Track trackNew = new Track();
+                trackNew.addTalk(talk);
+                tracks.add(trackNew);
             }
         });
         return tracks;
