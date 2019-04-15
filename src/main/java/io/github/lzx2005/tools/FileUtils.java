@@ -18,7 +18,7 @@ public class FileUtils {
      * @param file
      * @return
      */
-    public List<String> read(File file){
+    public static List<String> read(File file){
         ArrayList<String> strings = new ArrayList<>();
         BufferedReader reader = null;
         try {
