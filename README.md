@@ -3,7 +3,7 @@
 
 ## 题目
 
-最近看到一个ThoughtWorks的面试题，这边实现以下，问题如下：
+最近看到一个ThoughtWorks的面试题，这边实现一下，问题如下：
 
 **Problem Two: Conference Track Management**
 
